@@ -1,16 +1,14 @@
 package testSuite;
 
-import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.By;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-import java.io.File;
-import java.io.IOException;
+
+
 
 import static org.testng.Assert.assertEquals;
 
@@ -23,7 +21,7 @@ public class Day7 {
 
     @Test
 
-    public void SavePlaceOrderAsPDF() throws IOException, InterruptedException {
+    public void SavePlaceOrderAsPDF() throws InterruptedException {
 
         Util.driver.findElement(By.xpath("//*[@class=\"skip-link skip-account\"]")).click();
         Util.driver.findElement(By.cssSelector("[title=\"My Account\"]")).click();
@@ -69,13 +67,21 @@ public class Day7 {
         System.out.println(Util.driver.getTitle());
        //save as pdf
         Thread.sleep(3000);
-        File scrFile = ((TakesScreenshot) Util.driver).getScreenshotAs(OutputType.FILE);
+        /*File scrFile = ((TakesScreenshot) Util.driver).getScreenshotAs(OutputType.FILE);
         String pdf = ("Image\\" + "reset" +".pdf");
-        FileUtils.copyFile(scrFile, new File(pdf));
+        FileUtils.copyFile(scrFile, new File(pdf));*/
 
 
 
+        // Step 8. Click 'Change...' link and a popup will be opened as 'Select a destination' , select 'Save as PDF' link.
+        // note:  There is no "Change...." link
 
+
+        // Step 9. Click on 'Save' button and save the file in some location.
+        // note: unable to find this Save button
+
+        // Step 10.Verify Order is saved as PDF
+        // unable to perform any verification because there is no option to save as PDF
 
 
 
