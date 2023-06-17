@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 //Verify that the discount works correctly
 public class Day9 {
-    private String URL="http://live.techpanda.org/";
-    private String discountCode="GURU50";
+    private final String URL="http://live.techpanda.org/";
+    private final String discountCode="GURU50";
     @BeforeTest
     public void OpenSite(){
         Util.setupCredintials(URL);
