@@ -5,6 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 import javax.activation.DataHandler;
@@ -18,13 +19,13 @@ import java.time.Duration;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class Util {
+public class Utils {
     public static String URL="http://live.techpanda.org/index.php/";
     public static WebDriver driver;
     public static void setupCredintials(String URL) {
-        /*WebDriverManager.firefoxdriver().setup();
+       /* WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();*/
-        WebDriverManager.chromedriver().setup();
+       WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get(URL);
         driver.manage().window().maximize();

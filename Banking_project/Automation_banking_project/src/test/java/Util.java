@@ -76,10 +76,10 @@ public static Object [][]getData() throws FileNotFoundException {
     @Test
     public void managerLogin(){
         driver.findElement(By.name("uid")).clear();
-        driver.findElement(By.name("uid")).sendKeys("mngr506610");
+        driver.findElement(By.name("uid")).sendKeys("mngr509437");
 
         driver.findElement(By.name("password")).clear();
-        driver.findElement(By.name("password")).sendKeys("vYhedAg");
+        driver.findElement(By.name("password")).sendKeys("nAhUhyj");
 
        driver.findElement(By.name("btnLogin")).click();
     }

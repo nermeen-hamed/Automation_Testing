@@ -12,34 +12,34 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class Day7 {
+public class TestCase07 {
     String URL="http://live.techpanda.org/";
     @BeforeTest
     public void OpenSite(){
-        Util.setupCredintials(URL);
+        Utils.setupCredintials(URL);
     }
 
     @Test
 
     public void SavePlaceOrderAsPDF() throws InterruptedException {
 
-        Util.driver.findElement(By.xpath("//*[@class=\"skip-link skip-account\"]")).click();
-        Util.driver.findElement(By.cssSelector("[title=\"My Account\"]")).click();
+        Utils.driver.findElement(By.xpath("//*[@class=\"skip-link skip-account\"]")).click();
+        Utils.driver.findElement(By.cssSelector("[title=\"My Account\"]")).click();
         //Switch to login page
-        for(String window:Util.driver.getWindowHandles())
-            Util.driver.switchTo().window(window);
+        for(String window: Utils.driver.getWindowHandles())
+            Utils.driver.switchTo().window(window);
         // Enter Login credentials
-        Util.driver.findElement(By.id("email")).sendKeys("m49125366@gmail.com");
-        Util.driver.findElement(By.id("pass")).sendKeys("Test123");
-        Util.driver.findElement(By.id("send2")).click();
+        Utils.driver.findElement(By.id("email")).sendKeys("m49125366@gmail.com");
+        Utils.driver.findElement(By.id("pass")).sendKeys("Test123");
+        Utils.driver.findElement(By.id("send2")).click();
         // Switch to home page
-        for(String window:Util.driver.getWindowHandles())
-            Util.driver.switchTo().window(window);
+        for(String window: Utils.driver.getWindowHandles())
+            Utils.driver.switchTo().window(window);
 
 
-        Util.driver.findElement(By.linkText("MY ORDERS")).click();
+        Utils.driver.findElement(By.linkText("MY ORDERS")).click();
         //Check status of order
-        String ActualStatus=Util.driver.findElement(By.cssSelector("tr.odd:nth-child(1) > td:nth-child(5) > em:nth-child(1)")).getText();
+        String ActualStatus= Utils.driver.findElement(By.cssSelector("tr.odd:nth-child(1) > td:nth-child(5) > em:nth-child(1)")).getText();
         System.out.println("Actual status "+ActualStatus);
         String ExpectedStatus="Pending";
         try {
@@ -50,8 +50,8 @@ public class Day7 {
                 e.printStackTrace();
         }
         //View Order
-        Util.driver.findElement(By.xpath("//tr[@class=\"first odd\"]/td[6]/span/a")).click();
-        String Actualstatus =Util.driver.findElement(By.xpath("//div[@class=\"page-title title-buttons\"]/h1")).getText();
+        Utils.driver.findElement(By.xpath("//tr[@class=\"first odd\"]/td[6]/span/a")).click();
+        String Actualstatus = Utils.driver.findElement(By.xpath("//div[@class=\"page-title title-buttons\"]/h1")).getText();
         String Expectedstatus ="pending";
         if(Actualstatus.toLowerCase().contains(Expectedstatus.toLowerCase())){
             System.out.println(Actualstatus);
@@ -61,10 +61,10 @@ public class Day7 {
             System.out.println("Test case is False ");
         System.out.println(Actualstatus);
         //Print order
-        Util.driver.findElement(By.xpath("//div[@class=\"page-title title-buttons\"]/a[2]")).click();
-        for(String window :Util.driver.getWindowHandles())
-            Util.driver.switchTo().window(window);
-        System.out.println(Util.driver.getTitle());
+        Utils.driver.findElement(By.xpath("//div[@class=\"page-title title-buttons\"]/a[2]")).click();
+        for(String window : Utils.driver.getWindowHandles())
+            Utils.driver.switchTo().window(window);
+        System.out.println(Utils.driver.getTitle());
        //save as pdf
         Thread.sleep(3000);
         /*File scrFile = ((TakesScreenshot) Util.driver).getScreenshotAs(OutputType.FILE);

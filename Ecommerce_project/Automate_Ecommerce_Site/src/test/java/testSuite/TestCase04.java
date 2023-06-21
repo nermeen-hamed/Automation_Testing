@@ -16,44 +16,44 @@ import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Day4 {
+public class TestCase04 {
     @Test
     public void TC1Day_4() throws IOException, InterruptedException {
         //Chose mobile
         String ExpectedTitle = "Mobile page";
-        WebElement mobile = Util.driver.findElement(By.className("level0"));
+        WebElement mobile = Utils.driver.findElement(By.className("level0"));
         mobile.click();
         // in details page choose sony xperia and iphone to be compared between them
-        WebElement Sony_Xperia_item = Util.driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[2]/div/div[3]/ul/li[2]/a"));
+        WebElement Sony_Xperia_item = Utils.driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[2]/div/div[3]/ul/li[2]/a"));
         Sony_Xperia_item.click();
-        WebElement iphone_item = Util.driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a"));
+        WebElement iphone_item = Utils.driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a"));
         iphone_item.click();
         //click compare button
-        WebElement compareButton = Util.driver.findElement(By.cssSelector("[title=\"Compare\"]"));
+        WebElement compareButton = Utils.driver.findElement(By.cssSelector("[title=\"Compare\"]"));
         compareButton.click();
         //switch to popup window
-        String MainWindow = Util.driver.getWindowHandle();
+        String MainWindow = Utils.driver.getWindowHandle();
         // To handle all new opened window.
-        Set<String> s1 = Util.driver.getWindowHandles();
+        Set<String> s1 = Utils.driver.getWindowHandles();
         Iterator<String> i1 = s1.iterator();
-        WebDriverWait wait = new WebDriverWait(Util.driver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(Utils.driver, Duration.ofSeconds(3));
         while (i1.hasNext()) {
             String ChildWindow = i1.next();
             // Switching to popup window
             if (!MainWindow.equalsIgnoreCase(ChildWindow))//if Id of main page equals to id of child page ignored
             {
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[title=\"Close Window\"]")));
-                File scrFile = ((TakesScreenshot) Util.driver).getScreenshotAs(OutputType.FILE);
+                File scrFile = ((TakesScreenshot) Utils.driver).getScreenshotAs(OutputType.FILE);
                 String png = ("Image\\" + "CompareWindow" + ".png");
                 FileUtils.copyFile(scrFile, new File(png));
-                Util.driver.findElement(By.cssSelector("[title=\"Close Window\"]")).click();
+                Utils.driver.findElement(By.cssSelector("[title=\"Close Window\"]")).click();
             }
         }
-        Util.driver.switchTo().window(MainWindow);
+        Utils.driver.switchTo().window(MainWindow);
     }
     @AfterTest
     public void tearDown() throws Exception {
-        Util.driver.quit();
+        Utils.driver.quit();
 
     }
 }
