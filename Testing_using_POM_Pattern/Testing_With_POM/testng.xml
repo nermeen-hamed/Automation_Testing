@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="E:/AutomationTesting/Testing_using_POM_Pattern/Testing_With_POM/src">
+        <classes>
+            <class name="Utils.TestCase2">
+                <methods>
+                    <include name="signTest"/>
+                </methods>
+            </class>
+            <class name="Utils.TestCase3">
+                <methods>
+                    <include name="addItemsToCart_Test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
