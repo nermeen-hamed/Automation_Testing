@@ -2,7 +2,9 @@
     
     I was trying to implement api automation testing using rest assured framework on Swagger UI which is sample petStore server 
      https://petstore.swagger.io
-## TestCases
+## Endpints Package includes all requests 
+## Payloads Package includes user ,store and pet classes  
+## TestCases Package
     PetTestCase => For testing  Get,Post and delete a pet 
     USerTestCase => For testing Post ,Get Delete and Update a user
     StoreTestCase => For testing updating ,Post ,Get and delete a store
