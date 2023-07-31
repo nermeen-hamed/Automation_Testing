@@ -18,4 +18,15 @@ public class Routes {
     public static String getInventoryUrl=baseURL+"/store/inventory";
 
 
+    //Routes for Pet Module
+    public static String postPetUrl=baseURL+"/pet";
+    public static String updatePetUrl=baseURL+"/pet";
+    public static String getPetUrl=baseURL+"/pet/{petId}";
+    public static String deletePetUrl=baseURL+"/pet/{petId}";
+
+    public static String getByPetUrl=baseURL+"/pet/findByStatus?status=available";
+
+    public static String postByPetUrl=baseURL+"/pet/{petId}";
+
+
 }
