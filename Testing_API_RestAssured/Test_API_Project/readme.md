@@ -8,9 +8,7 @@
     StoreTestCase => For testing updating ,Post ,Get and delete a store
 # Note To run the project
 ## Your POM file should include all dependencies
-       Selenium
        Rest Assured
-       Webmanager 
        TestNG
        Allure
 ## Note To run Allure Report
